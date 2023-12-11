@@ -10,7 +10,8 @@ class Strings
      * @param ?string $string
      * @return ?string
      */
-    public static function escape(?string $string) : ?string {
+    public static function escape(?string $string): ?string
+    {
         if (is_null($string)) {
             return null;
         }
@@ -26,7 +27,8 @@ class Strings
      * @param ?string $string
      * @return ?string
      */
-    public static function undoEscape(?string $string) : ?string {
+    public static function undoEscape(?string $string): ?string
+    {
         if (is_null($string)) {
             return null;
         }
@@ -41,7 +43,8 @@ class Strings
      * @param string $string The input string to be lowercased and cleaned
      * @return string The lowercased and cleaned string
      */
-    public static function lowerCleanString(string $string) : string {
+    public static function lowerCleanString(string $string): string
+    {
         return trim(strtolower(htmlspecialchars($string)));
     }
 
@@ -50,7 +53,8 @@ class Strings
      * @param string $data The string to be cleaned.
      * @return string The cleaned string.
      */
-    public static function clean(string $data) : string {
+    public static function clean(string $data): string
+    {
         return preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $data));
     }
 
@@ -60,7 +64,8 @@ class Strings
      * @param int $length
      * @return string
      */
-    public static function substrWithoutLastWord(string $string, int $length) : string {
+    public static function substrWithoutLastWord(string $string, int $length): string
+    {
         if (strlen($string) <= $length) {
             return $string;
         }
@@ -77,8 +82,9 @@ class Strings
      * @param string $string
      * @return string
      */
-    public static function removeLineBreaks(string $string) : string {
-        return str_replace(["\n", "\r", '<br />', '<br>'], '', $string);
+    public static function removeLineBreaks(string $string): string
+    {
+        return str_replace(["\n", "\r", '<br />', '<br>', '<br/>'], '', $string);
     }
 
     /**
@@ -87,7 +93,8 @@ class Strings
      * @param string $separator
      * @return string
      */
-    public static function camelizeString(string $string, string $separator = '') : string {
+    public static function camelizeString(string $string, string $separator = ''): string
+    {
         return str_replace($separator, '', ucwords($string, $separator));
     }
 
@@ -97,7 +104,8 @@ class Strings
      * @param string $separator
      * @return string
      */
-    public static function decamelizeString(string $string, string $separator = '_') : string {
+    public static function decamelizeString(string $string, string $separator = '_'): string
+    {
         return strtolower(preg_replace('/(?<!^)[A-Z]/', $separator . '$0', $string));
     }
 
